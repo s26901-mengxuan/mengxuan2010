@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>资料来源 | 招潮蟹</title>
+
+    <style>
+
+        /* =========================
+           全局设置
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:
+                "Microsoft YaHei",
+                "微软雅黑",
+                Arial,
+                sans-serif;
+
+            background: #eef4ec;
+            color: #34483d;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           导航栏
+        ========================= */
+
+        nav {
+            width: 100%;
+            height: 75px;
+
+            background: #243b32;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 8%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.12);
+        }
+
+
+        .logo {
+            color: #e8d9ae;
+
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+
+            letter-spacing: 3px;
+
+            text-decoration: none;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+
+        .nav-links a {
+            color: #f5f2e8;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #d6bd78;
+        }
+
+
+        /* =========================
+           顶部标题
+        ========================= */
+
+        .hero {
+            min-height: 360px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(34, 65, 53, 0.86),
+                    rgba(34, 65, 53, 0.86)
+                ),
+                url("mangrove.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+
+        .hero h1 {
+            font-size: 48px;
+
+            letter-spacing: 8px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero p {
+            font-size: 17px;
+
+            letter-spacing: 3px;
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           内容区域
+        ========================= */
+
+        .container {
+            width: 88%;
+
+            max-width: 1050px;
+
+            margin: 70px auto;
+        }
+
+
+        .intro {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .intro h2 {
+            color: #365b49;
+
+            font-size: 30px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .intro p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #68776e;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           资料卡片
+        ========================= */
+
+        .source-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 28px;
+        }
+
+
+        .source-card {
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            border: 1px solid #dce7df;
+
+            box-shadow:
+                0 8px 25px rgba(43, 75, 61, 0.08);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+        }
+
+
+        .source-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 35px rgba(43, 75, 61, 0.15);
+        }
+
+
+        .number {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            background: #d9e5d8;
+
+            color: #315443;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+
+        .source-card h3 {
+            color: #2e5846;
+
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        .source-card .website {
+            color: #9a8861;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .source-card p {
+            color: #65736b;
+
+            font-size: 14px;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================
+           查看资料按钮
+        ========================= */
+
+        .source-button {
+            display: inline-block;
+
+            width: fit-content;
+
+            padding: 9px 22px;
+
+            background: #365b49;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .source-button:hover {
+            background: #9a8861;
+
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           底部说明
+        ========================= */
+
+        .note {
+            margin-top: 55px;
+
+            padding: 28px 35px;
+
+            background: #e1ebe1;
+
+            border-left:
+                5px solid #6d8b72;
+
+            border-radius: 12px;
+
+            color: #53665a;
+
+            font-size: 14px;
+        }
+
+
+        .note strong {
+            color: #315443;
+        }
+
+
+        /* =========================
+           页脚
+        ========================= */
+
+        footer {
+            margin-top: 80px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #243b32;
+
+            color: #d9dfd9;
+
+            font-size: 13px;
+        }
+
+
+        footer span {
+            color: #d6bd78;
+        }
+
+
+        /* =========================
+           手机适配
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+
+                letter-spacing: 5px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .source-list {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<!-- =========================
+     主要内容
+========================= -->
+
+<main class="container">
+
+
+    <section class="intro">
+
+        <h2>
+            招潮蟹资料库
+        </h2>
+
+        <p>
+            本页面整理了制作招潮蟹绘本时参考的资料。
+            内容涵盖招潮蟹的生态习性、潮间带生活、
+            红树林生态系统，以及招潮蟹与微塑胶之间的关系。
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         资料卡片
+    ========================= -->
+
+    <section class="source-list">
+
+
+        <!-- 资料 01 -->
+
+        <article class="source-card">
+
+            <div>
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Fiddler crabs found to hoover up
+                    and break down microplastic particles
+                </h3>
+
+                <div class="website">
+                    University of Exeter News
+                </div>
+
+                <p>
+                    英国埃克塞特大学发布的研究新闻，
+                    介绍招潮蟹在红树林和盐沼环境中摄食
+                    微塑胶，以及其消化系统可能加速塑胶颗粒
+                    破碎的研究发现。
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://news.exeter.ac.uk/faculty-of-health-and-life-sciences/biosciences/fiddler-crabs-found-to-hoover-up-and-break-down-microplastic-particles/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="source-button">
+
+                查看原始资料 →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- 资料 02 -->
+
+        <article class="source-card">
+
+            <div>
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    招潮蟹可在14天內分解塑膠微粒
+                </h3>
+
+                <div class="website">
+                    環境資訊中心
+                </div>
+
+                <p>
+                    介绍招潮蟹摄食微塑胶的研究，
+                    包括红树林环境、微塑胶摄食情况，
+                    以及招潮蟹作为「生态系工程师」
+                    所具有的重要生态作用。
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://www.e-info.org.tw/node/242913"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="source-button">
+
+                查看原始资料 →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- 资料 03 -->
+
+        <article class="source-card">
+
+            <div>
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    呼喚海浪的迷你大軍——招潮蟹
+                </h3>
+
+                <div class="website">
+                    環境資訊中心
+                </div>
+
+                <p>
+                    从生态观察的角度介绍招潮蟹，
+                    内容涉及台湾招潮蟹的种类、
+                    栖息环境、觅食行为以及潮间带观察。
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://www.e-info.org.tw/node/108463"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="source-button">
+
+                查看原始资料 →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- 资料 04 -->
+
+        <article class="source-card">
+
+            <div>
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    泥灘地上的小提琴手——招潮蟹
+                </h3>
+
+                <div class="website">
+                    環境資訊中心
+                </div>
+
+                <p>
+                    以泥滩地生态为主题介绍招潮蟹，
+                    可作为了解招潮蟹外形、生活环境、
+                    行为与生态观察的重要参考资料。
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://www.e-info.org.tw/node/94550"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="source-button">
+
+                查看原始资料 →
+
+            </a>
+
+        </article>
+
+
+    </section>
+
+
+</main>
+
+</body>
+
+</html>
+
